@@ -8,14 +8,17 @@ def main():
 
     epd.Clear(0xFF)
 
-    image = Image.new('1', (epd.width, epd.height), 255)
-    draw = ImageDraw.Draw(image)
+    image1 = Image.open('/home/pi/image1.png').convert('1')
+    image1 = image1.resize((epd.width, epd.height), Image.ANTIALIAS)
+    image1 = image1.rotate(180)
+    epd.display(epd.getbuffer(image1))
 
-    font = ImageFont.truetype('/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf', 16)
+    time.sleep(2)
 
-    draw.text((10, 10), 'Hello, World!', font=font, fill=0)
-    image = image.rotate(180)
-    epd.display(epd.getbuffer(image))
+    image2 = Image.open('/home/pi/image2.png').convert('1')
+    image2 = image2.resize((epd.width, epd.height), Image.ANTIALIAS)
+    image2 = image2.rotate(180)
+    epd.display(epd.getbuffer(image2))
 
     time.sleep(2)
 

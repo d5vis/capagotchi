@@ -14,6 +14,6 @@
   - git clone (insert repo)
   - python3 -m venv capagotchi-env
   - source capagotchi-env/bin/activate
-  - pip3 install .
+  - pip3 install . OR sudo python3 setup.py install (safe on PiOS)
   - pip3 install spidev gpiozero RPi.GPIO pillow numpy lgpio
   - python3 src/main.py
