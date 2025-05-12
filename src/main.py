@@ -39,6 +39,13 @@ def main():
 
     time.sleep(2)
 
+    bday = Image.open(os.path.join(base_path, 'bday.png')).convert('1')
+    bday = bday.resize((epd.height, epd.width), Image.ANTIALIAS)
+    bday = bday.rotate(180)
+    epd.display(epd.getbuffer(bday))
+
+    time.sleep(2)
+
     epd.Clear(0xFF)
     epd.sleep()
 
