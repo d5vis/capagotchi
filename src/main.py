@@ -8,14 +8,14 @@ def main():
 
     epd.Clear(0xFF)
 
-    image1 = Image.open('/home/pi/image1.png').convert('1')
+    image1 = Image.open('/home/pi/class_of.png').convert('1')
     image1 = image1.resize((epd.width, epd.height), Image.ANTIALIAS)
     image1 = image1.rotate(180)
     epd.display(epd.getbuffer(image1))
 
     time.sleep(2)
 
-    image2 = Image.open('/home/pi/image2.png').convert('1')
+    image2 = Image.open('/home/pi/2025.png').convert('1')
     image2 = image2.resize((epd.width, epd.height), Image.ANTIALIAS)
     image2 = image2.rotate(180)
     epd.display(epd.getbuffer(image2))
