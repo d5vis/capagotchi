@@ -11,18 +11,25 @@ def main():
 
     base_path = os.path.dirname(os.path.abspath(__file__))
 
-    image1 = Image.open(os.path.join(base_path, 'class_of.png')).convert('1')
-    image1 = image1.resize((epd.height, epd.width), Image.ANTIALIAS)
-    image1 = image1.rotate(180)
-    epd.display(epd.getbuffer(image1))
+    class_of = Image.open(os.path.join(base_path, 'class_of.png')).convert('1')
+    class_of = class_of.resize((epd.height, epd.width), Image.ANTIALIAS)
+    class_of = class_of.rotate(180)
+    epd.display(epd.getbuffer(class_of))
 
     time.sleep(2)
 
-    image2 = Image.open(os.path.join(base_path, '2025.png')).convert('1')
-    image2 = image2.resize((epd.height, epd.width), Image.ANTIALIAS)
-    image2 = image2.rotate(180)
-    epd.display(epd.getbuffer(image2))
+    twenty_twenty_five = Image.open(os.path.join(base_path, '2025.png')).convert('1')
+    twenty_twenty_five = twenty_twenty_five.resize((epd.height, epd.width), Image.ANTIALIAS)
+    twenty_twenty_five = twenty_twenty_five.rotate(180)
+    epd.display(epd.getbuffer(twenty_twenty_five))
 
+    time.sleep(2)
+
+    mfotw = Image.open(os.path.join(base_path, 'mfotw.png')).convert('1')
+    mfotw = mfotw.resize((epd.height, epd.width), Image.ANTIALIAS)
+    mfotw = mfotw.rotate(180)
+    epd.display(epd.getbuffer(mfotw))
+    
     time.sleep(2)
 
     epd.Clear(0xFF)
