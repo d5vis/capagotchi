@@ -29,7 +29,14 @@ def main():
     mfotw = mfotw.resize((epd.height, epd.width), Image.ANTIALIAS)
     mfotw = mfotw.rotate(180)
     epd.display(epd.getbuffer(mfotw))
-    
+
+    time.sleep(2)
+
+    dav_daw = Image.open(os.path.join(base_path, 'dav_daw.png')).convert('1')
+    dav_daw = dav_daw.resize((epd.height, epd.width), Image.ANTIALIAS)
+    dav_daw = dav_daw.rotate(180)
+    epd.display(epd.getbuffer(dav_daw))
+
     time.sleep(2)
 
     epd.Clear(0xFF)
