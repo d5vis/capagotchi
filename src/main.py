@@ -10,41 +10,15 @@ def main():
     epd.Clear(0xFF)
 
     base_path = os.path.dirname(os.path.abspath(__file__))
-
-    class_of = Image.open(os.path.join(base_path, 'class_of.png')).convert('1')
-    class_of = class_of.resize((epd.height, epd.width), Image.ANTIALIAS)
-    class_of = class_of.rotate(180)
-    epd.display(epd.getbuffer(class_of))
-
-    time.sleep(2)
-
-    twenty_twenty_five = Image.open(os.path.join(base_path, '2025.png')).convert('1')
-    twenty_twenty_five = twenty_twenty_five.resize((epd.height, epd.width), Image.ANTIALIAS)
-    twenty_twenty_five = twenty_twenty_five.rotate(180)
-    epd.display(epd.getbuffer(twenty_twenty_five))
-
-    time.sleep(2)
-
-    mfotw = Image.open(os.path.join(base_path, 'mfotw.png')).convert('1')
-    mfotw = mfotw.resize((epd.height, epd.width), Image.ANTIALIAS)
-    mfotw = mfotw.rotate(180)
-    epd.display(epd.getbuffer(mfotw))
-
-    time.sleep(2)
-
-    dav_daw = Image.open(os.path.join(base_path, 'dav_daw.png')).convert('1')
-    dav_daw = dav_daw.resize((epd.height, epd.width), Image.ANTIALIAS)
-    dav_daw = dav_daw.rotate(180)
-    epd.display(epd.getbuffer(dav_daw))
-
-    time.sleep(2)
-
-    bday = Image.open(os.path.join(base_path, 'bday.png')).convert('1')
-    bday = bday.resize((epd.height, epd.width), Image.ANTIALIAS)
-    bday = bday.rotate(180)
-    epd.display(epd.getbuffer(bday))
-
-    time.sleep(2)
+    images_dir = os.path.join(base_path, 'images')
+    for filename in os.listdir(images_dir):
+        if filename.endswith('.png'):
+            image_path = os.path.join(images_dir, filename)
+            image = Image.open(image_path).convert('1')
+            image = image.resize((epd.height, epd.width), Image.ANTIALIAS)
+            image = image.rotate(180)
+            epd.display(epd.getbuffer(image))
+            time.sleep(2)
 
     epd.Clear(0xFF)
     epd.sleep()
