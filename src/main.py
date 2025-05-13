@@ -18,7 +18,7 @@ def main():
             image = image.resize((epd.height, epd.width), Image.ANTIALIAS)
             image = image.rotate(180)
             epd.display(epd.getbuffer(image))
-            time.sleep(2)
+            time.sleep(7)
 
     epd.Clear(0xFF)
     epd.sleep()
