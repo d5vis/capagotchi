@@ -11,14 +11,16 @@ def main():
 
     base_path = os.path.dirname(os.path.abspath(__file__))
     images_dir = os.path.join(base_path, 'images')
-    for filename in os.listdir(images_dir):
-        if filename.endswith('.png'):
-            image_path = os.path.join(images_dir, filename)
-            image = Image.open(image_path).convert('1')
-            image = image.resize((epd.height, epd.width), Image.ANTIALIAS)
-            image = image.rotate(180)
-            epd.display(epd.getbuffer(image))
-            time.sleep(7)
+
+    while True:
+        for filename in os.listdir(images_dir):
+            if filename.endswith('.png'):
+                image_path = os.path.join(images_dir, filename)
+                image = Image.open(image_path).convert('1')
+                image = image.resize((epd.height, epd.width), Image.ANTIALIAS)
+                image = image.rotate(180)
+                epd.display(epd.getbuffer(image))
+                time.sleep(10)
 
     epd.Clear(0xFF)
     epd.sleep()
